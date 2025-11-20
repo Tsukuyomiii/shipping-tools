@@ -1,12 +1,29 @@
 <head>
 	<script src="main.js"></script>
-
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<h1>THE CROPPER</h1>
-	<div class="canvas-frame">
-	</div>
-		<canvas id="cropping-canvas"></canvas>
+	<main>
+		<h1>THE CROPPER</h1>
+		<div class="canvas-frame">
+			<!-- <canvas id="cropping-canvas"></canvas> -->
+			<img id="img-to-edit"/>
+		</div>
+		<div class="result-frame">
+			<canvas id="crop-canvas"></canvas>
+		</div>
+		<div class="control-panel">
+			<div class="control-panel-display">
+				<div class="mouse-info">
+					Current Mouse Pos: <p></p>
+					Saved Pos 1: <p></p>
+					Saved Pos 2: <p></p>
+				</div>
+			</div>
+			<button>Reset</button>
+			<button>Crop</button>
+		</div>
+	</main>
 
 </body>

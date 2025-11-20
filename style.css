@@ -1,6 +1,36 @@
-/* .canvas-frame {
-	width: fit-content;
-	height: fit-content;
-	padding: 10px 10px;
+main {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+}
+
+.canvas-frame {
+	/* width: fit-content;
+	height: fit-content; */
 	border: 2px dotted black;
-} */
+	width: 40%;
+	margin-bottom: 40px;
+}
+
+.canvas-frame img {
+	width: 100%;	
+	object-fit: scale-down;
+}
+
+.control-panel {
+	border: 1px solid black;
+}
+
+.mouse-info {
+	margin-bottom: 10px;
+}
+
+.mouse-info p {
+	margin: 0;
+}
+
+@media (max-width: 1000px) {
+	.canvas-frame {
+		width: 80%;
+	}
+}
