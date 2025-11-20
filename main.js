@@ -36,6 +36,7 @@ window.addEventListener('load', async () => {
 			canvas.setAttribute("width", width);
 			canvas.setAttribute("height", height);
 			const ele = documnet.createElement("div");
+			ele.
 			ctx.reset();
 			ctx.drawImage(bitmap, p1.x, p1.y, width, height, 0, 0, width, height);
 		}
