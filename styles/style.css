@@ -1,6 +1,4 @@
-body {
-	background-color: gray;
-}
+
 
 main {
 	display: flex;
@@ -32,6 +30,16 @@ main {
 
 .mouse-info p {
 	margin: 0;
+}
+
+@media print {
+	main > * {
+		display: none;
+	}
+	
+	.result-frame {
+		display: block !important;
+	}
 }
 
 @media (max-width: 1000px) {

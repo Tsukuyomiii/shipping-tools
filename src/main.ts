@@ -7,16 +7,18 @@
 
 async function init_cropper() {
 	// const image = new Image();
+	const print_frame = document.createElement("iframe");
+
+	
 	const image = document.getElementById("img-to-edit");
+
 	if (!(image instanceof HTMLImageElement)) throw "could not load image";
 
 	await new Promise((resolve, reject) => { 
 		image.onload = resolve; 
-		image.onerror = reject; 
+		image.onerror = reject;
+		image.src = "../Untitled.jpg";
 	});
-
-	image.src = "Untitled.jpg";
-
 
 	const scale = image.naturalWidth / image.width;
 
@@ -48,14 +50,18 @@ async function init_cropper() {
 		const link = document.getElementById("crop-link") as HTMLAnchorElement;
 		if (link.href !== "") URL.revokeObjectURL(link.href);
 		// do_the_iframe_thing();
-		link.href = URL.createObjectURL(await new Promise((res, rej) => {
+		const blob = await new Promise<Blob>((res, rej) => {
 			canvas.toBlob(blob => {
 				if (blob !== null) res(blob);
 				rej("[mdn] null may be passed if the image cannot be created for any reason.");
 			});
-		}))
+		});
+
+		link.href = URL.createObjectURL(blob);
+
 	})
 }
+
 
 // async function do_the_iframe_thing() {
 // 	const a = document.createElement("a");
