@@ -7,9 +7,6 @@
 
 async function init_cropper() {
 	// const image = new Image();
-	const print_frame = document.createElement("iframe");
-
-	
 	const image = document.getElementById("img-to-edit");
 
 	if (!(image instanceof HTMLImageElement)) throw "could not load image";
