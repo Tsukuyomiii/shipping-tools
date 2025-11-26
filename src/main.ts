@@ -35,7 +35,7 @@ async function init_cropper() {
 		let { x:       x1, y:       y1 } = start;
 		let { offsetX: x2, offsetY: y2 } = event;
 
-		const width = x2 - x1;
+		const width  = x2 - x1;
 		const height = y2 - y1;
 		
 		canvas.setAttribute("width", width.toString(10));
@@ -43,6 +43,10 @@ async function init_cropper() {
 
 		ctx.reset();
 		ctx.drawImage(image, x1 * scale, y1 * scale, width * scale, height * scale, 0, 0, width, height);
+
+		if (width > height) {
+			ctx.rotate(-90);
+		}
 
 		const link = document.getElementById("crop-link") as HTMLAnchorElement;
 		if (link.href !== "") URL.revokeObjectURL(link.href);
