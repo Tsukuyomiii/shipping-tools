@@ -5,7 +5,7 @@
 // "Store Label Format"
 // https://supportcommunity.zebra.com/s/article/Store-label-format-and-recall-for-printing-using-ZebraDesigner-3?language=en_US
 
-async function init_cropper() {
+async function init_cropper_old() {
 	// const image = new Image();
 	const image = document.getElementById("img-to-edit");
 
@@ -61,6 +61,29 @@ async function init_cropper() {
 		link.href = URL.createObjectURL(blob);
 
 	})
+}
+
+// provide with a container
+async function init_cropper(container: HTMLElement) {
+	
+
+	const [img_to_crop, canvas] = await Promise.all([
+		new Promise<HTMLImageElement>((res, rej) => {
+			let img = document.createElement("img");
+			img.onload = () => res(img);
+			img.onerror = () => rej();
+		}),
+		new Promise<HTMLCanvasElement>((res, rej) => {
+			let canvas = document.createElement("canvas");
+			canvas.onload = () => res(canvas);
+			canvas.onerror = () => rej();
+		})
+	]);
+	
+
+	document.body.append(img_to_crop);
+	
+	
 }
 
 
