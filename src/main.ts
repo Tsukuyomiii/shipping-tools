@@ -64,8 +64,9 @@ async function init_cropper_old() {
 }
 
 // provide with a container
-async function init_cropper(container: HTMLElement) {
-	
+async function init_cropper() HTMLElement {
+
+	const container = document.createElement("div");
 
 	const [img_to_crop, canvas] = await Promise.all([
 		new Promise<HTMLImageElement>((res, rej) => {
@@ -81,8 +82,12 @@ async function init_cropper(container: HTMLElement) {
 	]);
 	
 
-	document.body.append(img_to_crop);
+	container.append(img_to_crop);
+	container.append(canvas);
+
+	document.body.append(container);
 	
+
 	
 }
 
